@@ -1,0 +1,156 @@
+import type { GibTableDef } from "../../kdv/config/kdv1Tables";
+import {
+  BANKA_AKTIF,
+  BANKA_GELIR,
+  BANKA_NAZIM,
+  BANKA_PASIF,
+  FK_AKTIF,
+  FK_GELIR,
+  FK_PASIF,
+  KATILIM_AKTIF,
+  KATILIM_BDH,
+  KATILIM_GELIR,
+  KATILIM_PASIF,
+  SIGORTA_AKTIF,
+  SIGORTA_GELIR,
+  SIGORTA_PASIF,
+  TDHP_AKTIF,
+  TDHP_GELIR,
+  TDHP_PASIF,
+  YF_AKTIF,
+  YF_GELIR,
+  YF_PASIF,
+  ekBildirimGrid,
+  idariForm,
+  maliTablo,
+} from "./maliTabloHelpers";
+
+function bilancoDefs(): Record<string, GibTableDef> {
+  return {
+    bil_td_aktif: maliTablo("bil_td_aktif", "Tek Düzen — Aktif", "Dönen / duran varlıklar.", TDHP_AKTIF),
+    bil_td_pasif: maliTablo("bil_td_pasif", "Tek Düzen — Pasif", "Yabancı kaynaklar / özkaynaklar.", TDHP_PASIF),
+    bil_td_gt: maliTablo("bil_td_gt", "Tek Düzen — Gelir Tablosu", "Brüt satıştan dönem net kârına.", TDHP_GELIR),
+    bil_bk_aktif: maliTablo("bil_bk_aktif", "Banka — Aktif", "Banka bilanço aktif kalemleri.", BANKA_AKTIF),
+    bil_bk_pasif: maliTablo("bil_bk_pasif", "Banka — Pasif", "Banka bilanço pasif kalemleri.", BANKA_PASIF),
+    bil_bk_nazim: maliTablo("bil_bk_nazim", "Banka — Nazım Hesaplar", "Garanti, taahhüt, türev.", BANKA_NAZIM),
+    bil_bk_gt: maliTablo("bil_bk_gt", "Banka — Gelir Tablosu", "Faiz / komisyon özeti.", BANKA_GELIR),
+    bil_sg_aktif: maliTablo("bil_sg_aktif", "Sigorta — Aktif", "Sigorta aktif kalemleri.", SIGORTA_AKTIF),
+    bil_sg_pasif: maliTablo("bil_sg_pasif", "Sigorta — Pasif", "Teknik karşılıklar / özkaynak.", SIGORTA_PASIF),
+    bil_sg_gt: maliTablo("bil_sg_gt", "Sigorta — Gelir Tablosu", "Prim / teknik denge.", SIGORTA_GELIR),
+    bil_kt_aktif: maliTablo("bil_kt_aktif", "Katılım Bankası — Aktif", "Katılım aktif kalemleri.", KATILIM_AKTIF),
+    bil_kt_pasif: maliTablo("bil_kt_pasif", "Katılım Bankası — Pasif", "Toplanan fonlar / özkaynak.", KATILIM_PASIF),
+    bil_kt_bdh: maliTablo("bil_kt_bdh", "Katılım — Bilanço Dışı", "Taahhüt / emanet.", KATILIM_BDH),
+    bil_kt_gt: maliTablo("bil_kt_gt", "Katılım — Gelir Tablosu", "Kâr payı özeti.", KATILIM_GELIR),
+    bil_fk_aktif: maliTablo("bil_fk_aktif", "Finansal Kiralama — Aktif", "FK aktif kalemleri.", FK_AKTIF),
+    bil_fk_pasif: maliTablo("bil_fk_pasif", "Finansal Kiralama — Pasif", "FK pasif kalemleri.", FK_PASIF),
+    bil_fk_gt: maliTablo("bil_fk_gt", "Finansal Kiralama — Gelir Tablosu", "FK gelir özeti.", FK_GELIR),
+    bil_yf_aktif: maliTablo("bil_yf_aktif", "Yatırım Fonları — Aktif", "Fon aktif kalemleri.", YF_AKTIF),
+    bil_yf_pasif: maliTablo("bil_yf_pasif", "Yatırım Fonları — Pasif", "Fon pasif / değer.", YF_PASIF),
+    bil_yf_gt: maliTablo("bil_yf_gt", "Yatırım Fonları — Gelir Tablosu", "Fon gelir özeti.", YF_GELIR),
+  };
+}
+
+export const GECICI_TABLE_DEFS: Record<string, GibTableDef> = {
+  s1_1: idariForm("s1_1", "1.1 İdari Bilgiler", [
+    {
+      key: "donem_ceyrek",
+      label: "Çeyrek",
+      type: "select",
+      options: [
+        { value: "1", label: "1. Çeyrek" },
+        { value: "2", label: "2. Çeyrek" },
+        { value: "3", label: "3. Çeyrek" },
+        { value: "4", label: "4. Çeyrek" },
+      ],
+    },
+    { key: "donem_yil", label: "Yıl", type: "number", width: 100 },
+  ]),
+  s1_2: {
+    id: "s1_2",
+    title: "1.2 Mükellef Bilgileri",
+    kind: "form",
+    fields: [
+      { key: "unvan", label: "Ünvan", type: "text" },
+      { key: "adres", label: "Adres", type: "text" },
+      { key: "telefon", label: "Telefon", type: "text" },
+      { key: "eposta", label: "E-posta", type: "text" },
+      {
+        key: "kazanc_tespit",
+        label: "Kazanç Tespit Yöntemi",
+        type: "select",
+        options: [
+          { value: "bilanco", label: "Bilanço" },
+          { value: "isletme", label: "İşletme Hesabı" },
+        ],
+      },
+      {
+        key: "bilanco_tipi",
+        label: "Bilanço Tipi",
+        type: "select",
+        options: [
+          { value: "tdhp", label: "Tek Düzen Hesap Planı" },
+          { value: "banka", label: "Banka" },
+          { value: "katilim", label: "Katılım Bankası" },
+          { value: "sigorta", label: "Sigorta" },
+          { value: "fk", label: "Finansal Kiralama" },
+          { value: "yf", label: "Yatırım Fonları" },
+        ],
+      },
+    ],
+  },
+  s2_1: {
+    id: "s2_1",
+    title: "2.1 Ticari Kazanç Matrahı",
+    kind: "summary",
+    fields: [
+      { key: "ticari_kar", label: "Ticari Bilanço Kârı / Zararı", type: "number" },
+      { key: "ilaveler", label: "İlaveler (+)", type: "number" },
+      { key: "indirimler", label: "İndirimler (-)", type: "number" },
+      { key: "zarar_mahsup", label: "Geçmiş Yıl Zarar Mahsubu (-)", type: "number" },
+    ],
+  },
+  s2_2: ekBildirimGrid("s2_2", "2.2 İlaveler / İndirimler"),
+  s2_3: {
+    id: "s2_3",
+    title: "2.3 Geçici Vergi Matrahı",
+    kind: "summary",
+    fields: [
+      { key: "matrah", label: "Geçici Vergi Matrahı", type: "number" },
+      { key: "oran", label: "Oran (%)", type: "number" },
+    ],
+  },
+  s3_1: {
+    id: "s3_1",
+    title: "3.1 Hesaplanan Geçici Vergi",
+    kind: "summary",
+    fields: [
+      { key: "hesaplanan", label: "Hesaplanan Geçici Vergi", type: "number" },
+      { key: "indirimli", label: "İndirimli Oran Uygulaması", type: "number" },
+    ],
+  },
+  s3_2: ekBildirimGrid("s3_2", "3.2 Mahsuplar"),
+  s3_3: {
+    id: "s3_3",
+    title: "3.3 Ödenecek / İade",
+    kind: "summary",
+    fields: [
+      { key: "mahsup_toplam", label: "Mahsup Toplamı", type: "number" },
+      { key: "odenecek", label: "Ödenecek Geçici Vergi", type: "number" },
+      { key: "iade", label: "İade Edilecek", type: "number" },
+    ],
+  },
+  s4_1: {
+    id: "s4_1",
+    title: "4.1 Düzeltme Açıklamaları",
+    kind: "form",
+    fields: [
+      { key: "duzeltme_nedeni", label: "Düzeltme Nedeni", type: "text" },
+      { key: "aciklama", label: "Açıklama", type: "text" },
+    ],
+  },
+  s4_2: ekBildirimGrid("s4_2", "4.2 Önceki Dönem Mahsupları"),
+  ...bilancoDefs(),
+  s6_1: ekBildirimGrid("s6_1", "6.1 Kanunen Kabul Edilmeyen Giderler"),
+  s6_2: ekBildirimGrid("s6_2", "6.2 İstisna / İndirim Listesi"),
+  s6_3: ekBildirimGrid("s6_3", "6.3 Geçmiş Yıl Zararları"),
+};

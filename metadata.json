@@ -1,0 +1,7 @@
+{
+  "name": "Project Analyzer & Audit",
+  "description": "Google Drive project analyzer and module completeness auditor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

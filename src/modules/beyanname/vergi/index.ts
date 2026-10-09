@@ -1,0 +1,10 @@
+export { BeyannameGibSection } from "./components/BeyannameGibSection";
+export { GeciciVergiSection } from "./components/GeciciVergiSection";
+export { KurumlarVergiSection } from "./components/KurumlarVergiSection";
+export { GelirVergiSection } from "./components/GelirVergiSection";
+export { GECICI_MENU_ITEMS } from "./config/geciciMenu";
+export { KURUMLAR_MENU_ITEMS } from "./config/kurumlarMenu";
+export { GELIR_MENU_ITEMS } from "./config/gelirMenu";
+export { GECICI_TABLE_DEFS } from "./config/geciciTables";
+export { KURUMLAR_TABLE_DEFS } from "./config/kurumlarTables";
+export { GELIR_TABLE_DEFS } from "./config/gelirTables";

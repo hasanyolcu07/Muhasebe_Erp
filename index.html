@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Analyzer & Audit</title>
+    <meta name="description" content="Google Drive project analyzer and module completeness auditor." />
+    <meta property="og:title" content="Project Analyzer & Audit" />
+    <meta property="og:description" content="Google Drive project analyzer and module completeness auditor." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        var origError = console.error;
+        console.error = function() {
+          var msg = arguments[0];
+          if (typeof msg === 'string' && (
+            msg.indexOf('changing a controlled input to be uncontrolled') !== -1 ||
+            msg.indexOf('changing an uncontrolled input to be controlled') !== -1
+          )) {
+            return;
+          }
+          return origError.apply(console, arguments);
+        };
+        var origWarn = console.warn;
+        console.warn = function() {
+          var msg = arguments[0];
+          if (typeof msg === 'string' && (
+            msg.indexOf('changing a controlled input to be uncontrolled') !== -1 ||
+            msg.indexOf('changing an uncontrolled input to be controlled') !== -1
+          )) {
+            return;
+          }
+          return origWarn.apply(console, arguments);
+        };
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
