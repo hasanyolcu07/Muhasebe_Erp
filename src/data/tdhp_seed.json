@@ -1,0 +1,2354 @@
+[
+  {
+    "code": "1",
+    "name": "DÖNEN VARLIKLAR",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "10",
+    "name": "HAZIR DEĞERLER",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "100",
+    "name": "KASA",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "101",
+    "name": "ALINAN ÇEKLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "102",
+    "name": "BANKALAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "103",
+    "name": "VERİLEN ÇEKLER VE ÖDEME EMİRLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "108",
+    "name": "DİĞER HAZIR DEĞERLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "11",
+    "name": "MENKUL KIYMETLER",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "110",
+    "name": "HİSSE SENETLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "111",
+    "name": "ÖZEL KESİM TAHVİL, SENET VE BONOLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "112",
+    "name": "KAMU KESİMİ TAHVİL, SENET VE BONOLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "118",
+    "name": "DİĞER MENKUL KIYMETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "119",
+    "name": "MENKUL KIYMET DEĞER DÜŞÜKLÜĞÜ KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "12",
+    "name": "TİCARİ ALACAKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "120",
+    "name": "ALICILAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "121",
+    "name": "ALACAK SENETLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "122",
+    "name": "ALACAK SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "124",
+    "name": "KAZANILMAMIŞ FİN. KİRALAMA FAİZ GELİRLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "126",
+    "name": "VERİLEN DEPOZİTO VE TEMİNATLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "127",
+    "name": "DİĞER TİCARİ ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "128",
+    "name": "ŞÜPHELİ TİCARİ ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "129",
+    "name": "ŞÜPHELİ TİCARİ ALACAKLAR KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "13",
+    "name": "DİĞER ALACAKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "131",
+    "name": "ORTAKLARDAN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "132",
+    "name": "İŞTİRAKLERDEN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "133",
+    "name": "BAĞLI ORTAKLIKLARDAN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "135",
+    "name": "PERSONELDEN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "136",
+    "name": "DİĞER ÇEŞİTLİ ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "137",
+    "name": "DİĞER ALACAK SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "138",
+    "name": "ŞÜPHELİ DİĞER ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "139",
+    "name": "ŞÜPHELİ DİĞER ALACAKLAR KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "15",
+    "name": "STOKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "150",
+    "name": "İLK MADDE VE MALZEME",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "151",
+    "name": "YARI MAMULLER - ÜRETİM",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "152",
+    "name": "MAMULLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "153",
+    "name": "TİCARİ MALLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "157",
+    "name": "DİĞER STOKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "158",
+    "name": "STOK DEĞER DÜŞÜKLÜĞÜ KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "159",
+    "name": "VERİLEN SİPARİŞ AVANSLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "17",
+    "name": "YILLARA YAYGIN İNŞAAT VE ONARIM MALİYETLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "170",
+    "name": "YILLARA YAYGIN İNŞAAT VE ONARIM MALİYETLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "178",
+    "name": "YILLARA YAYGIN İNŞAAT ENFLASYON DÜZELTME HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "179",
+    "name": "TAŞERONLARA VERİLEN AVANSLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "18",
+    "name": "GELECEK AYLARA AİT GİDERLER VE GELİR TAHAKKUKLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "180",
+    "name": "GELECEK AYLARA AİT GİDERLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "181",
+    "name": "GELİR TAHAKKUKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "19",
+    "name": "DİĞER DÖNEN VARLIKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "190",
+    "name": "DEVREDEN KATMA DEĞER VERGİSİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "191",
+    "name": "İNDİRİLECEK KATMA DEĞER VERGİSİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "192",
+    "name": "DİĞER KATMA DEĞER VERGİSİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "193",
+    "name": "PEŞİN ÖDENEN VERGİLER VE FONLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "195",
+    "name": "İŞ AVANSLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "196",
+    "name": "PERSONEL AVANSLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "197",
+    "name": "SAYIM VE TESELLÜM NOKSANLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "198",
+    "name": "DİĞER ÇEŞİTLİ DÖNEN VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "199",
+    "name": "DİĞER DÖNEN VARLIKLAR KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "2",
+    "name": "DURAN VARLIKLAR",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "22",
+    "name": "TİCARİ ALACAKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "220",
+    "name": "ALICILAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "221",
+    "name": "ALACAK SENETLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "222",
+    "name": "ALACAK SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "224",
+    "name": "KAZANILMAMIŞ FİNANSAL KİRALAMA FAİZ GELİRLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "226",
+    "name": "VERİLEN DEPOZİTO VE TEMİNATLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "229",
+    "name": "ŞÜPHELİ ALACAKLAR KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "23",
+    "name": "DİĞER ALACAKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "231",
+    "name": "ORTAKLARDAN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "232",
+    "name": "İŞTİRAKLERDEN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "233",
+    "name": "BAĞLI ORTAKLIKLARDAN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "235",
+    "name": "PERSONELDEN ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "236",
+    "name": "DİĞER ÇEŞİTLİ ALACAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "237",
+    "name": "DİĞER ALACAK SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "239",
+    "name": "ŞÜPHELİ ALACAKLAR KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "24",
+    "name": "MALİ DURAN VARLIKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "240",
+    "name": "BAĞLI MENKUL KIYMETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "241",
+    "name": "BAĞLI MENKUL KIYMETLER DEĞER DÜŞÜKLÜĞÜ KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "242",
+    "name": "İŞTİRAKLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "243",
+    "name": "İŞTİRAKLERE SERMAYE TAAHHÜTLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "244",
+    "name": "İŞTİRAKLER SERMAYE PAYLARI DEĞER DÜŞÜKLÜĞÜ KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "245",
+    "name": "BAĞLI ORTAKLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "246",
+    "name": "BAĞLI ORTAKLIKLARA SERMAYE TAAHHÜTLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "247",
+    "name": "BAĞLI ORTAKLIKLAR SERMAYE PAYLARI DEĞER DÜŞÜKLÜĞÜ KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "248",
+    "name": "DİĞER MALİ DURAN VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "249",
+    "name": "DİĞER MALİ DURAN VARLIKLAR KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "25",
+    "name": "MADDİ DURAN VARLIKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "250",
+    "name": "ARAZİ VE ARSALAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "251",
+    "name": "YER ALTI VE YER ÜSTÜ DÜZENLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "252",
+    "name": "BİNALAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "253",
+    "name": "TESİS, MAKİNE VE CİHAZLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "254",
+    "name": "TAŞITLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "255",
+    "name": "DEMİRBAŞLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "256",
+    "name": "DİĞER MADDİ DURAN VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "257",
+    "name": "BİRİKMİŞ AMORTİSMANLAR (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "258",
+    "name": "YAPILMAKTA OLAN YATIRIMLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "259",
+    "name": "VERİLEN AVANSLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "26",
+    "name": "MADDİ OLMAYAN DURAN VARLIKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "260",
+    "name": "HAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "261",
+    "name": "ŞEREFİYE",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "262",
+    "name": "KURULUŞ VE ÖRGÜTLENME GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "263",
+    "name": "ARAŞTIRMA VE GELİŞTİRME GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "264",
+    "name": "ÖZEL MALİYETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "267",
+    "name": "DİĞER MADDİ OLMAYAN DURAN VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "268",
+    "name": "BİRİKMİŞ AMORTİSMANLAR (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "269",
+    "name": "VERİLEN AVANSLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "27",
+    "name": "ÖZEL TÜKENMEYE TABİ VARLIKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "271",
+    "name": "ARAMA GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "272",
+    "name": "HAZIRLIK VE GELİŞTİRME GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "277",
+    "name": "DİĞER ÖZEL TÜKENMEYE TABİ VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "278",
+    "name": "BİRİKMİŞ TÜKENME PAYLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "279",
+    "name": "VERİLEN AVANSLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "28",
+    "name": "GELECEK YILLARA AİT GİDERLER VE GELİR TAHAKKUKLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "280",
+    "name": "GELECEK YILLARA AİT GİDERLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "281",
+    "name": "GELİR TAHAKKUKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "29",
+    "name": "DİĞER DURAN VARLIKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "291",
+    "name": "GELECEK YILLARDA İNDİRİLECEK KATMA DEĞER VERGİSİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "292",
+    "name": "DİĞER KATMA DEĞER VERGİSİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "293",
+    "name": "GELECEK YILLAR İHTİYACI STOKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "294",
+    "name": "ELDEN ÇIKARILACAK STOKLAR VE MADDİ DURAN VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "295",
+    "name": "PEŞİN ÖDENEN VERGİLER VE FONLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "297",
+    "name": "DİĞER ÇEŞİTLİ DURAN VARLIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "298",
+    "name": "STOK DEĞER DÜŞÜKLÜĞÜ KARŞILIĞI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "299",
+    "name": "BİRİKMİŞ AMORTİSMANLAR (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "3",
+    "name": "KISA VADELİ YABANCI KAYNAKLAR",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "30",
+    "name": "MALİ BORÇLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "300",
+    "name": "BANKA KREDİLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "301",
+    "name": "FİNANSAL KİRALAMA İŞLEMLERİNDEN BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "302",
+    "name": "ERTELENMİŞ FİNANSAL KİRALAMA BORÇLANMA MALİYETLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "303",
+    "name": "UZUN VADELİ KREDİLERİN ANAPARA TAKSİTLERİ VE FAİZLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "304",
+    "name": "TAHVİL ANAPARA BORÇ, TAKSİT VE FAİZLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "305",
+    "name": "ÇIKARILMIŞ BONOLAR VE SENETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "306",
+    "name": "ÇIKARILMIŞ DİĞER MENKUL KIYMETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "308",
+    "name": "MENKUL KIYMETLER İHRAÇ FARKI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "309",
+    "name": "DİĞER MALİ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "32",
+    "name": "TİCARİ BORÇLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "320",
+    "name": "SATICILAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "321",
+    "name": "BORÇ SENETLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "322",
+    "name": "BORÇ SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "326",
+    "name": "ALINAN DEPOZİTO VE TEMİNATLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "329",
+    "name": "DİĞER TİCARİ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "33",
+    "name": "DİĞER BORÇLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "331",
+    "name": "ORTAKLARA BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "332",
+    "name": "İŞTİRAKLERE BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "333",
+    "name": "BAĞLI ORTAKLIKLARA BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "335",
+    "name": "PERSONELE BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "336",
+    "name": "DİĞER ÇEŞİTLİ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "337",
+    "name": "DİĞER BORÇ SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "34",
+    "name": "ALINAN AVANSLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "340",
+    "name": "ALINAN SİPARİŞ AVANSLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "349",
+    "name": "ALINAN DİĞER AVANSLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "35",
+    "name": "YILLARA YAYGIN İNŞAAT VE ONARIM HAKEDIŞLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "350",
+    "name": "YILLARA YAYGIN İNŞAAT VE ONARIM HAKEDIŞ BEDELLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "358",
+    "name": "YILLARA YAYGIN İNŞAAT ENFLASYON DÜZELTME HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "36",
+    "name": "ÖDENECEK VERGİ VE DİĞER YÜKÜMLÜLÜKLER",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "360",
+    "name": "ÖDENECEK VERGİ VE FONLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "361",
+    "name": "ÖDENECEK SOSYAL GÜVENLİK KESİNTİLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "368",
+    "name": "VADESİ GEÇMİŞ ERTELENMİŞ VEYA TAKSİTLENDİRİLMİŞ VERGİ VE DİĞER YÜKÜMLÜLÜKLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "369",
+    "name": "ÖDENECEK DİĞER YÜKÜMLÜLÜKLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "37",
+    "name": "BORÇ VE GİDER KARŞILIKLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "370",
+    "name": "DÖNEM KÂRI VERGİ VE DİĞER YASAL YÜKÜMLÜLÜK KARŞILIKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "371",
+    "name": "DÖNEM KÂRININ PEŞİN ÖDENEN VERGİ VE DİĞER YÜKÜMLÜLÜKLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "372",
+    "name": "KIDEM TAZMİNATI KARŞILIĞI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "373",
+    "name": "MALİYET GİDERLERİ KARŞILIĞI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "379",
+    "name": "DİĞER BORÇ VE GİDER KARŞILIKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "38",
+    "name": "GELECEK AYLARA AİT GELİRLER VE GİDER TAHAKKUKLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "380",
+    "name": "GELECEK AYLARA AİT GELİRLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "381",
+    "name": "GİDER TAHAKKUKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "39",
+    "name": "DİĞER KISA VADELİ YABANCI KAYNAKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "391",
+    "name": "HESAPLANAN KDV",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "392",
+    "name": "DİĞER KDV",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "393",
+    "name": "MERKEZ VE ŞUBELER CARİ HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "397",
+    "name": "SAYIM VE TESELLÜM FAZLALARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "399",
+    "name": "DİĞER ÇEŞİTLİ YABANCI KAYNAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "4",
+    "name": "UZUN VADELİ YABANCI KAYNAKLAR",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "40",
+    "name": "MALİ BORÇLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "400",
+    "name": "BANKA KREDİLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "401",
+    "name": "FİNANSAL KİRALAMA İŞLEMLERİNDEN BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "402",
+    "name": "ERTELENMİŞ FİNANSAL KİRALAMA BORÇLANMA MALİYETLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "405",
+    "name": "ÇIKARILMIŞ TAHVİLLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "407",
+    "name": "ÇIKARILMIŞ DİĞER MENKUL KIYMETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "408",
+    "name": "MENKUL KIYMETLER İHRAÇ FARKI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "409",
+    "name": "DİĞER MALİ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "42",
+    "name": "TİCARİ BORÇLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "420",
+    "name": "SATICILAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "421",
+    "name": "BORÇ SENETLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "422",
+    "name": "BORÇ SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "426",
+    "name": "ALINAN DEPOZİTO VE TEMİNATLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "429",
+    "name": "DİĞER TİCARİ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "43",
+    "name": "DİĞER BORÇLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "431",
+    "name": "ORTAKLARA BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "432",
+    "name": "İŞTİRAKLERE BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "433",
+    "name": "BAĞLI ORTAKLIKLARA BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "436",
+    "name": "DİĞER ÇEŞİTLİ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "437",
+    "name": "DİĞER BORÇ SENETLERİ REESKONTU (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "438",
+    "name": "KAMUYA OLAN ERTELENMİŞ VEYA TAKSİTLENDİRİLMİŞ BORÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "44",
+    "name": "ALINAN AVANSLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "440",
+    "name": "ALINAN SİPARİŞ AVANSLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "449",
+    "name": "ALINAN DİĞER AVANSLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "47",
+    "name": "BORÇ VE GİDER KARŞILIKLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "472",
+    "name": "KIDEM TAZMİNATI KARŞILIĞI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "479",
+    "name": "DİĞER BORÇ VE GİDER KARŞILIKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "48",
+    "name": "GELECEK YILLARA AİT GELİRLER VE GİDER TAHAKKUKLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "480",
+    "name": "GELECEK YILLARA AİT GELİRLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "481",
+    "name": "GİDER TAHAKKUKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "49",
+    "name": "DİĞER UZUN VADELİ YABANCI KAYNAKLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "492",
+    "name": "GELECEK YILLARA ERTELENEN VEYA TERKİN EDİLECEK KDV",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "493",
+    "name": "TESİSE KATILMA PAYLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "499",
+    "name": "DİĞER ÇEŞİTLİ UZUN VADELİ YABANCI KAYNAKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "5",
+    "name": "ÖZ KAYNAKLAR",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "50",
+    "name": "ÖDENMİŞ SERMAYE",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "500",
+    "name": "SERMAYE",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "501",
+    "name": "ÖDENMEMİŞ SERMAYE (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "502",
+    "name": "SERMAYE DÜZELTMESİ OLUMLU FARKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "503",
+    "name": "SERMAYE DÜZELTMESİ OLUMSUZ FARKLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "52",
+    "name": "SERMAYE YEDEKLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "520",
+    "name": "HİSSE SENETLERİ İHRAÇ PRİMLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "521",
+    "name": "HİSSE SENEDİ İPTAL KÂRLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "522",
+    "name": "M.D.V. YENİDEN DEĞERLEME ARTIŞLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "523",
+    "name": "İŞTİRAKLER YENİDEN DEĞERLEME ARTIŞLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "524",
+    "name": "MALİYET BEDELİ ARTIŞ FONU",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "529",
+    "name": "DİĞER SERMAYE YEDEKLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "54",
+    "name": "KÂR YEDEKLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "540",
+    "name": "YASAL YEDEKLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "541",
+    "name": "STATÜ YEDEKLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "542",
+    "name": "OLAĞANÜSTÜ YEDEKLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "548",
+    "name": "DİĞER KÂR YEDEKLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "549",
+    "name": "ÖZEL FONLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "57",
+    "name": "GEÇMİŞ YILLAR KÂRLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "570",
+    "name": "GEÇMİŞ YILLAR KÂRLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "58",
+    "name": "GEÇMİŞ YILLAR ZARARLARI (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "580",
+    "name": "GEÇMİŞ YILLAR ZARARLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "59",
+    "name": "DÖNEM NET KÂRI (ZARARI)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "590",
+    "name": "DÖNEM NET KÂRI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "591",
+    "name": "DÖNEM NET ZARARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "6",
+    "name": "GELİR TABLOSU HESAPLARI",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "60",
+    "name": "BRÜT SATIŞLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "600",
+    "name": "YURTİÇİ SATIŞLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "601",
+    "name": "YURTDIŞI SATIŞLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "602",
+    "name": "DİĞER GELİRLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "61",
+    "name": "SATIŞ İNDİRİMLERİ (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "610",
+    "name": "SATIŞTAN İADELER (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "611",
+    "name": "SATIŞ İSKONTOLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "612",
+    "name": "DİĞER İNDİRİMLER (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "62",
+    "name": "SATIŞLARIN MALİYETİ (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "620",
+    "name": "SATILAN MAMULLER MALİYETİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "621",
+    "name": "SATILAN TİCARİ MALLAR MALİYETİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "622",
+    "name": "SATILAN HİZMET MALİYETİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "623",
+    "name": "DİĞER SATIŞLARIN MALİYETİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "63",
+    "name": "FAALİYET GİDERLERİ (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "630",
+    "name": "ARAŞTIRMA VE GELİŞTİRME GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "631",
+    "name": "PAZARLAMA SATIŞ VE DAĞITIM GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "632",
+    "name": "GENEL YÖNETİM GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "64",
+    "name": "DİĞER FAALİYETLERDEN OLAĞAN GELİR VE KÂRLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "640",
+    "name": "İŞTİRAKLERDEN TEMETTÜ GELİRLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "641",
+    "name": "BAĞLI ORTAKLIKLARDAN TEMETTÜ GELİRLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "642",
+    "name": "FAİZ GELİRLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "643",
+    "name": "KOMİSYON GELİRLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "644",
+    "name": "KONUSU KALMAYAN KARŞILIKLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "645",
+    "name": "MENKUL KIYMET SATIŞ KÂRLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "646",
+    "name": "KAMBİYO KÂRLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "647",
+    "name": "REESKONT FAİZ GELİRLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "648",
+    "name": "ENFLASYON DÜZELTMESİ KÂRLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "649",
+    "name": "DİĞER OLAĞAN GELİR VE KÂRLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "65",
+    "name": "DİĞER FAALİYETLERDEN OLAĞAN GİDER VE ZARARLAR (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "653",
+    "name": "KOMİSYON GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "654",
+    "name": "KARŞILIK GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "655",
+    "name": "MENKUL KIYMET SATIŞ ZARARLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "656",
+    "name": "KAMBİYO ZARARLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "657",
+    "name": "REESKONT FAİZ GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "658",
+    "name": "ENFLASYON DÜZELTMESİ ZARARLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "659",
+    "name": "DİĞER OLAĞAN GİDER VE ZARARLAR (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "66",
+    "name": "FİNANSMAN GİDERLERİ (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "660",
+    "name": "KISA VADELİ BORÇLANMA GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "661",
+    "name": "UZUN VADELİ BORÇLANMA GİDERLERİ (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "67",
+    "name": "OLAĞANDIŞI GELİR VE KÂRLAR",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "671",
+    "name": "ÖNCEKİ DÖNEM GELİR VE KÂRLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "679",
+    "name": "DİĞER OLAĞANDIŞI GELİR VE KÂRLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "68",
+    "name": "OLAĞANDIŞI GİDER VE ZARARLAR (-)",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "680",
+    "name": "ÇALIŞMAYAN KISIM GİDER VE ZARARLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "681",
+    "name": "ÖNCEKİ DÖNEM GİDER VE ZARARLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "689",
+    "name": "DİĞER OLAĞANDIŞI GİDER VE ZARARLAR (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "69",
+    "name": "DÖNEM NET KÂRI VEYA ZARARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "690",
+    "name": "DÖNEM KÂRI VEYA ZARARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "691",
+    "name": "DÖNEM KÂRI VERGİ VE DİĞER YASAL YÜKÜMLÜLÜK KARŞILIKLARI (-)",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "692",
+    "name": "DÖNEM NET KÂRI VEYA ZARARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "697",
+    "name": "DÖNEM NET ZARARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "698",
+    "name": "DÖNEM NET KÂRI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "7",
+    "name": "MALİYET HESAPLARI (7/A)",
+    "account_level": "SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "70",
+    "name": "MALİYET MUHASEBESİ BAĞLANTI HESAPLARI",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "700",
+    "name": "MALİYET MUHASEBESİ BAĞLANTI HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "701",
+    "name": "MALİYET MUHASEBESİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "71",
+    "name": "DİREKT İLK MADDE VE MALZEME GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "710",
+    "name": "DİREKT İLK MADDE VE MALZEME GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "711",
+    "name": "DİREKT İLK MADDE VE MALZEME YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "712",
+    "name": "DİREKT İLK MADDE VE MALZEME FİYAT FARKI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "713",
+    "name": "DİREKT İLK MADDE VE MALZEME MİKTAR FARKI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "72",
+    "name": "DİREKT İŞÇİLİK GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "720",
+    "name": "DİREKT İŞÇİLİK GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "721",
+    "name": "DİREKT İŞÇİLİK YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "722",
+    "name": "DİREKT İŞÇİLİK ÜCRET FARKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "723",
+    "name": "DİREKT İŞÇİLİK SÜRE (ZAMAN) FARKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "73",
+    "name": "GENEL ÜRETİM GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "730",
+    "name": "GENEL ÜRETİM GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "731",
+    "name": "GENEL ÜRETİM GİDERLERİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "732",
+    "name": "GENEL ÜRETİM GİDERLERİ BÜTÇE SAPMALARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "733",
+    "name": "GENEL ÜRETİM GİDERLERİ VERİMLİLİK SAPMALARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "734",
+    "name": "GENEL ÜRETİM GİDERLERİ KAPASİTE SAPMALARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "74",
+    "name": "HİZMET ÜRETİM MALİYETİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "740",
+    "name": "HİZMET ÜRETİM MALİYETİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "741",
+    "name": "HİZMET ÜRETİM MALİYETİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "742",
+    "name": "HİZMET ÜRETİM MALİYETİ FARKLARI HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "75",
+    "name": "ARAŞTIRMA VE GELİŞTİRME GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "750",
+    "name": "ARAŞTIRMA VE GELİŞTİRME GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "751",
+    "name": "ARAŞTIRMA VE GELİŞTİRME GİDERLERİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "752",
+    "name": "ARAŞTIRMA VE GELİŞTİRME GİDER FARKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "76",
+    "name": "PAZARLAMA SATIŞ VE DAĞITIM GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "760",
+    "name": "PAZARLAMA SATIŞ VE DAĞITIM GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "761",
+    "name": "PAZARLAMA SATIŞ VE DAĞITIM GİDERLERİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "762",
+    "name": "PAZARLAMA SATIŞ VE DAĞITIM GİDERLERİ FARK HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "77",
+    "name": "GENEL YÖNETİM GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "770",
+    "name": "GENEL YÖNETİM GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "771",
+    "name": "GENEL YÖNETİM GİDERLERİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "772",
+    "name": "GENEL YÖNETİM GİDER FARKLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "78",
+    "name": "FİNANSMAN GİDERLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "780",
+    "name": "FİNANSMAN GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "781",
+    "name": "FİNANSMAN GİDERLERİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "782",
+    "name": "FİNANSMAN GİDERLERİ FARK HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "79",
+    "name": "GİDER ÇEŞİTLERİ",
+    "account_level": "ALT_SINIF",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "790",
+    "name": "İLK MADDE VE MALZEME GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "791",
+    "name": "İŞÇİ ÜCRET VE GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "792",
+    "name": "MEMUR ÜCRET VE GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "793",
+    "name": "DIŞARIDAN SAĞLANAN FAYDA VE HİZMETLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "794",
+    "name": "ÇEŞİTLİ GİDERLER",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "795",
+    "name": "VERGİ, RESİM VE HARÇLAR",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "796",
+    "name": "AMORTİSMANLAR VE TÜKENME PAYLARI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "797",
+    "name": "FİNANSMAN GİDERLERİ",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "798",
+    "name": "GİDER ÇEŞİTLERİ YANSITMA HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  },
+  {
+    "code": "799",
+    "name": "ÜRETİM MALİYET HESABI",
+    "account_level": "ANA",
+    "is_postable": false,
+    "is_system": true
+  }
+]

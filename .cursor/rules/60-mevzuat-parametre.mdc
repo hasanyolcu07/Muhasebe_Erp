@@ -1,0 +1,13 @@
+---
+description: Yürürlük tarihli mevzuat parametre tablosu kuralları
+globs: ["src/server/mevzuat/**", "src/lib/mevzuat*", "prisma/mevzuat*", "src/**/Parametre*", "src/modules/personel/services/payroll*"]
+alwaysApply: false
+---
+- Tablo: anahtar, değer (Decimal 18,6), yürürlük başlangıcı, yürürlük bitişi (boş = açık), kaynak (Resmî Gazete/tebliğ/karar adı), giren kullanıcı. Aynı anahtarda tarih aralıkları çakışamaz.
+- Kullanıcı arayüzü yıl bazlıdır: üst çubuktaki çalışma yılı satırları süzer. Bir anahtar için yıl içinde BİRDEN FAZLA yürürlük dönemi eklenebilir ("Dönem ekle"). Yıl bazlı tek aralığa zorlama yok.
+- Okuma her zaman tarih alır: bordro → bordro ayının ilk günü; fatura/irsaliye → belge/teslim tarihi; yıl sonu işleri → ilgili tarih. "Çalışma yılı" tek başına belge tarihinin yerine geçmez.
+- Oran KESİR saklanır (1 = %100), ekranda yüzde girilir/gösterilir. Tutarlar TL. Yüzde ve kesir karışması testle korunur.
+- Eksik parametre: 422 + Türkçe mesaj ("<anahtar> için <tarih> tarihinde değer girilmemiş") + parametre ekranına bağlantı. Yedek değer, "en yakın yıl" veya koda gömülü tarife yok.
+- Seed resmi değer yazmaz. Her değişiklik denetim satırı bırakır.
+- Kesinleşmiş bordro/fatura/fişte kullanılan parametre değerleri kayıtta saklanır; sonradan parametre değişse yeniden hesaplanmaz.
+- Zorunlu anahtar listesi tek yerde tutulur; ekran eksik anahtarları gösterir.

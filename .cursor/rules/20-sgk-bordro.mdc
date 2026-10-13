@@ -1,0 +1,44 @@
+---
+description: SGK, bordro ve iş hukuku kuralları (5510, 4857, 1475, GVK, 488)
+globs: ["src/modules/personel/**", "src/server/**/*bordro*", "src/server/**/*personel*", "src/server/**/*sgk*", "src/server/routes/erp.routes.ts", "src/lib/mevzuat*", "prisma/**"]
+alwaysApply: false
+---
+Dayanak: 5510, 4857, 1475/14, 193 GVK, 488 Damga Vergisi Kanunu.
+
+## Tek Motor
+Bordro hesabı yalnız SUNUCUDA, tek motorda yapılır (Decimal). İstemcide ikinci bir hesap motoru veya fiş üretici bulunmaz.
+
+## Hesap Sırası
+1. Kazanç = brüt × çalışılan gün / 30 (en çok 30) + ek kalemler.
+2. SGK matrahı: aylık taban/tavan (parametre), eksik günde prim günüyle orantılı.
+3. SGK işçi + işsizlik işçi payı.
+4. GV matrahı = kazanç − SGK işçi − işsizlik işçi.
+5. Gelir vergisi KÜMÜLATİF matrahla dilimli (takvim yılı, Ocak'ta sıfırlanır). Önceki ay bordrosu yoksa 422.
+6. Damga vergisi.
+7. Asgari ücret istisnası (parametre/ayar; eksik günde davranış SMMM sorusu, ayarla seçilir).
+8. Net = kazanç − kesintiler (+ istisna etkisi).
+9. İşveren maliyeti = kazanç + işveren SGK + işsizlik işveren − teşvik indirimi.
+
+## Parametre
+Her değer bordro ayının başlangıç tarihine göre `MevzuatParametre`'den okunur (bkz. 60-mevzuat-parametre). Eksikse 422. Kullanılan parametre değerleri bordro satırında kopya (snapshot) olarak saklanır; kesinleşmiş bordro yeniden hesaplanmaz.
+
+## Teşvik ve İşveren Oranı
+5510 teşviki yalnız personelin SGK kanun kodu ve işyeri uygunluğu ile birlikte, parametre doluysa uygulanır; işsizlik payına uygulanmaz. Kısa vadeli sigorta oranı işyeri tehlike sınıfına göre işyeri kartından gelir.
+
+## Bordro Durumu
+TASLAK → KESİN. KESİN bordro ve fişi değişmez; düzeltme ters kayıt/ek bordro. Bordro onayı ayrı yetki.
+
+## Muhasebe Fişi
+Gider hesabı personelin "üretim personeli" bayrağına (boolean) ve şirket profiline göre belirlenir: üretim değilse 770; üretim ve 7/A ise 720; üretim ve 7/B ise 791. Alacak: 335 net, 361 SGK (işçi+işveren+işsizlik), 360 gelir+damga vergisi.
+
+## Bildirimler (veri raporu, gönderim yok)
+İşe giriş/çıkış süreleri, APHB (gün, eksik gün, 2 haneli neden kodu), MUHSGK. Süre günleri ve neden kodu kataloğu kullanıcı/parametre girişidir; kodda uydurma yok. Raporlar "gönderildi/kabul" demez.
+
+## Hak ve Tazminat
+Fazla mesai, hafta tatili, UBGT ayrı kalem; katsayı ve saat/gün bölenleri parametre. Yıllık izin, kıdem, ihbar: hesap önizlemedir, hak kararı değildir; fesih nedeni seçilir; ücret bazı (çıplak/giydirilmiş) ayardır.
+
+## Pusula ve Ödeme
+Ücret pusulası (PDF) ve banka ödeme listesi üretilir; IBAN yalnız yetkili ekranda açılır.
+
+## KVKK
+TCKN, IBAN, maaş: DB'de şifreli, listede maskeli, logda/denetim izinde yok. Bordro verisini yalnız ADMIN ve BORDRO_SORUMLUSU görür.

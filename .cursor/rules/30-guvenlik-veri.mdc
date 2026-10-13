@@ -1,0 +1,14 @@
+---
+description: Güvenlik, yetki, denetim ve veri bütünlüğü kuralları
+globs: ["server.ts", "src/server/**", "prisma/**"]
+alwaysApply: false
+---
+- Varsayılan/sabit parola yok. Seed için `SEED_ADMIN_PASSWORD` zorunlu ve güçlü olmalı; ilk girişte parola değiştirmek zorunlu. README, test ve belgelerde gerçek parola yazılmaz.
+- İstek zinciri: JWT → kullanıcı/tokenVersion → şirket (companyId kullanıcı kaydından) → `moduleAccess` → rol izni. Tanımsız yol 403 (izin listesi yerine "varsayılan reddet"). Yeni route'un `moduleAccess` kaydı yoksa test kırılır.
+- Roller: ADMIN, MUHASEBE_UZMANI, BORDRO_SORUMLUSU, DEPO_SORUMLUSU, SALT_OKUR. Matris `docs/ROL_MATRISI.md` dosyasındadır; maaş/TCKN/IBAN yalnız ADMIN + BORDRO_SORUMLUSU.
+- Girdi doğrulama Zod (personel, bordro, hesap planı, finans dahil); hata mesajı iç detay sızdırmaz.
+- Denetim kaydı: şirket (companyId), kim, ne zaman, hangi kayıt, eski/yeni değer; TCKN/IBAN/maaş düz yazılmaz. Denetim yazılamazsa işlem geri alınır. AuditLog güncellenmez/silinmez: DB tetikleyicisi ile de engellenir ve test edilir.
+- Hassas alanlar (TCKN, IBAN) uygulama katmanında şifreli saklanır (anahtar `.env`), aramak için ayrı hash.
+- Şema değişikliği yalnız Prisma migration; `db push` yok.
+- `.env` Git'te olmaz. İzlenmişse indeksten çıkarılır ve sızmış sırlar yenilenir.
+- Yedekleme/geri yükleme adımları `docs/` altında; yedek hataları ham mesaj dönmez.

@@ -1,0 +1,809 @@
+// TabiaERP — PostgreSQL şeması
+// Şirket izolasyonu, dönem kilidi, hareket defteri ve değiştirilemez denetim kaydı
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MUHASEBE_UZMANI
+  DEPO_SORUMLUSU
+}
+
+enum StokTuru {
+  HAMMADDE
+  YARI_MAMUL
+  MAMUL
+}
+
+enum AuditIslemTipi {
+  INSERT
+  UPDATE
+  DELETE
+}
+
+model Company {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  name      String
+  vkn       String?
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  branches   Branch[]
+  users      User[]
+  memberships UserCompany[]
+  periods    FiscalPeriod[]
+  cariler    CariKart[]
+  stoklar    StokKart[]
+  yevmiyeler YevmiyeKaydi[]
+  hesaplar   HesapPlani[]
+  depolar    Depo[]
+  fiyatlar   FiyatListesi[]
+  faturalar  Fatura[]
+  personeller Personel[]
+  bordrolar  Bordro[]
+  cariHareketler CariHareket[]
+  stokHareketler StokHareket[]
+  workspace  WorkspaceState?
+  ayar       CompanyAyar?
+  departmanlar Departman[]
+  meslekler  SgkMeslek[]
+  sgkIsyerleri SgkIsyeri[]
+  yedekler   BackupRun[]
+  cekler     CekSenet[]
+  kasalar    KasaHesabi[]
+  bankalar   BankaHesabi[]
+  nakitler   NakitHareket[]
+  demirbaslar Demirbas[]
+  kurlar     DovizKuru[]
+  receteler  UretimRecete[]
+  belgeler   TicariBelge[]
+  yilSonu    YearEndRun[]
+  edefterler EdefterPaket[]
+  ortaklar   Ortak[]
+  yatirimGiderleri YatirimGider[]
+  ortakDagitimlari OrtakDagitim[]
+
+  @@map("companies")
+}
+
+model Branch {
+  id        Int     @id @default(autoincrement())
+  companyId Int     @map("company_id")
+  code      String
+  name      String
+  isActive  Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, code])
+  @@map("branches")
+}
+
+model FiscalPeriod {
+  id        Int      @id @default(autoincrement())
+  companyId Int      @map("company_id")
+  year      Int
+  isClosed  Boolean  @default(false) @map("is_closed")
+  closedAt  DateTime? @map("closed_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, year])
+  @@map("fiscal_periods")
+}
+
+model UserCompany {
+  userId    Int  @map("user_id")
+  companyId Int  @map("company_id")
+  role      Role @default(MUHASEBE_UZMANI)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@id([userId, companyId])
+  @@map("user_companies")
+}
+
+model User {
+  id                 Int       @id @default(autoincrement())
+  companyId          Int       @map("company_id")
+  email              String    @unique
+  username           String    @unique
+  vkn                String?
+  passwordHash       String    @map("password_hash")
+  fullName           String    @map("full_name")
+  role               Role      @default(MUHASEBE_UZMANI)
+  isActive           Boolean   @default(true) @map("is_active")
+  failedLoginCount   Int       @default(0) @map("failed_login_count")
+  lockedUntil        DateTime? @map("locked_until")
+  passwordChangedAt  DateTime? @map("password_changed_at")
+  tokenVersion       Int       @default(0) @map("token_version")
+  totpSecret         String?   @map("totp_secret")
+  totpPendingSecret  String?   @map("totp_pending_secret")
+  totpEnabled        Boolean   @default(false) @map("totp_enabled")
+  amountLimit        Decimal?  @map("amount_limit") @db.Decimal(18, 2)
+  dashboardLayout    Json?     @map("dashboard_layout")
+  createdAt          DateTime  @default(now()) @map("created_at")
+  updatedAt          DateTime  @updatedAt @map("updated_at")
+
+  company      Company       @relation(fields: [companyId], references: [id])
+  memberships  UserCompany[]
+  refreshTokens RefreshToken[]
+  auditLogs    AuditLog[]
+
+  @@index([vkn])
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  userId    Int       @map("user_id")
+  tokenHash String    @unique @map("token_hash")
+  expiresAt DateTime  @map("expires_at")
+  revokedAt DateTime? @map("revoked_at")
+  ipAdresi  String?   @map("ip_adresi")
+  userAgent String?   @map("user_agent")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model HesapPlani {
+  id         Int     @id @default(autoincrement())
+  companyId  Int     @map("company_id")
+  kod        String
+  ad         String
+  seviye     String  @default("ANA")
+  planTipi   String  @default("ORTAK") @map("plan_tipi")
+  isPostable Boolean @default(false) @map("is_postable")
+  kilitli    Boolean @default(false)
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, kod])
+  @@index([companyId, ad])
+  @@map("hesap_plani")
+}
+
+model Depo {
+  id        Int     @id @default(autoincrement())
+  companyId Int     @map("company_id")
+  code      String
+  name      String
+  isActive  Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, code])
+  @@map("depolar")
+}
+
+model FiyatListesi {
+  id        Int     @id @default(autoincrement())
+  companyId Int     @map("company_id")
+  code      String
+  name      String
+  isActive  Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, code])
+  @@map("fiyat_listeleri")
+}
+
+model CariKart {
+  id           Int      @id @default(autoincrement())
+  companyId    Int      @map("company_id")
+  branchId     Int      @default(1) @map("branch_id")
+  kod          String
+  ad           String
+  vergiNo      String   @default("") @map("vergi_no")
+  vergiDairesi String?  @map("vergi_dairesi")
+  iban         String?
+  bakiye       Decimal  @default(0) @db.Decimal(18, 2)
+  telefon      String?
+  eposta       String?
+  adres        String?
+  hesapKodu    String?  @map("hesap_kodu")
+  profil       Json?
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  company  Company       @relation(fields: [companyId], references: [id])
+  hareketler CariHareket[]
+  faturalar Fatura[]
+  cekler    CekSenet[]
+  belgeler  TicariBelge[]
+
+  @@unique([companyId, kod])
+  @@index([companyId, vergiNo])
+  @@map("cari_kartlar")
+}
+
+model CariHareket {
+  id             Int      @id @default(autoincrement())
+  companyId      Int      @map("company_id")
+  cariId         Int      @map("cari_id")
+  tarih          DateTime
+  borc           Decimal  @default(0) @db.Decimal(18, 2)
+  alacak         Decimal  @default(0) @db.Decimal(18, 2)
+  aciklama       String
+  belgeNo        String?  @map("belge_no")
+  yevmiyeKaydiId Int?     @map("yevmiye_kaydi_id")
+  kaynakTip      String?  @map("kaynak_tip")
+  kaynakId       Int?     @map("kaynak_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  company Company  @relation(fields: [companyId], references: [id])
+  cari    CariKart @relation(fields: [cariId], references: [id])
+
+  @@index([companyId, cariId, tarih])
+  @@map("cari_hareketler")
+}
+
+model StokKart {
+  id           Int      @id @default(autoincrement())
+  companyId    Int      @map("company_id")
+  branchId     Int      @default(1) @map("branch_id")
+  stokKodu     String   @map("stok_kodu")
+  stokAdi      String   @map("stok_adi")
+  tur          StokTuru @default(HAMMADDE)
+  stokTipi     String   @default("HAMMADDE") @map("stok_tipi")
+  birim        String   @default("ADET")
+  alisFiyati   Decimal  @default(0) @db.Decimal(18, 2) @map("alis_fiyati")
+  satisFiyati  Decimal  @default(0) @db.Decimal(18, 2) @map("satis_fiyati")
+  mevcutMiktar    Decimal  @default(0) @db.Decimal(18, 4) @map("mevcut_miktar")
+  ortalamaMaliyet Decimal  @default(0) @db.Decimal(18, 6) @map("ortalama_maliyet")
+  kritikMiktar    Decimal? @default(0) @db.Decimal(18, 4) @map("kritik_miktar")
+  profil       Json?
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  company    Company      @relation(fields: [companyId], references: [id])
+  hareketler StokHareket[]
+
+  @@unique([companyId, stokKodu])
+  @@index([companyId, tur])
+  @@map("stok_kartlar")
+}
+
+model StokHareket {
+  id        Int      @id @default(autoincrement())
+  companyId Int      @map("company_id")
+  stokId    Int      @map("stok_id")
+  tarih     DateTime
+  giris        Decimal  @default(0) @db.Decimal(18, 4)
+  cikis        Decimal  @default(0) @db.Decimal(18, 4)
+  birimMaliyet Decimal  @default(0) @db.Decimal(18, 6) @map("birim_maliyet")
+  kalanMiktar  Decimal  @default(0) @db.Decimal(18, 4) @map("kalan_miktar")
+  aciklama     String
+  belgeNo   String?  @map("belge_no")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  company Company  @relation(fields: [companyId], references: [id])
+  stok    StokKart @relation(fields: [stokId], references: [id])
+
+  @@index([companyId, stokId, tarih])
+  @@map("stok_hareketler")
+}
+
+model YevmiyeKaydi {
+  id           Int            @id @default(autoincrement())
+  companyId    Int            @map("company_id")
+  fisNo        String         @map("fis_no")
+  tarih        DateTime
+  aciklama     String
+  toplamBorc   Decimal        @db.Decimal(18, 2) @map("toplam_borc")
+  toplamAlacak Decimal        @db.Decimal(18, 2) @map("toplam_alacak")
+  durum        String         @default("KESIN")
+  isLocked     Boolean        @default(false) @map("is_locked")
+  maddeNo      Int?           @map("madde_no")
+  createdAt    DateTime       @default(now()) @map("created_at")
+  updatedAt    DateTime       @updatedAt @map("updated_at")
+
+  company Company        @relation(fields: [companyId], references: [id])
+  satirlar YevmiyeSatir[]
+
+  @@unique([companyId, fisNo])
+  @@index([companyId, tarih])
+  @@map("yevmiye_kayitlari")
+}
+
+model YevmiyeSatir {
+  id             Int          @id @default(autoincrement())
+  yevmiyeKaydiId Int          @map("yevmiye_kaydi_id")
+  satirNo        Int          @map("satir_no")
+  hesapKodu      String       @map("hesap_kodu")
+  aciklama       String
+  borc           Decimal      @default(0) @db.Decimal(18, 2)
+  alacak         Decimal      @default(0) @db.Decimal(18, 2)
+
+  yevmiyeKaydi YevmiyeKaydi @relation(fields: [yevmiyeKaydiId], references: [id], onDelete: Cascade)
+
+  @@unique([yevmiyeKaydiId, satirNo])
+  @@index([hesapKodu])
+  @@map("yevmiye_satirlari")
+}
+
+model Fatura {
+  id           Int      @id @default(autoincrement())
+  companyId    Int      @map("company_id")
+  belgeNo      String   @map("belge_no")
+  tarih        DateTime
+  yon          String
+  cariId       Int?     @map("cari_id")
+  araToplam    Decimal  @default(0) @db.Decimal(18, 2) @map("ara_toplam")
+  kdvTutari    Decimal  @default(0) @db.Decimal(18, 2) @map("kdv_tutari")
+  genelToplam  Decimal  @default(0) @db.Decimal(18, 2) @map("genel_toplam")
+  durum        String   @default("TASLAK")
+  gibDurum     String   @default("YOK") @map("gib_durum")
+  olusturanId  Int?     @map("olusturan_id")
+  onaylayanId  Int?     @map("onaylayan_id")
+  yevmiyeFisNo String?  @map("yevmiye_fis_no")
+  profil       Json?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  company Company      @relation(fields: [companyId], references: [id])
+  cari    CariKart?    @relation(fields: [cariId], references: [id])
+  satirlar FaturaSatir[]
+
+  @@unique([companyId, belgeNo])
+  @@index([companyId, tarih])
+  @@map("faturalar")
+}
+
+model FaturaSatir {
+  id         Int     @id @default(autoincrement())
+  faturaId   Int     @map("fatura_id")
+  satirNo    Int     @map("satir_no")
+  stokId     Int?    @map("stok_id")
+  aciklama   String
+  miktar     Decimal @db.Decimal(18, 4)
+  birimFiyat Decimal @db.Decimal(18, 2) @map("birim_fiyat")
+  kdvOran    Decimal @default(20) @db.Decimal(5, 2) @map("kdv_oran")
+  tutar      Decimal @db.Decimal(18, 2)
+
+  fatura Fatura @relation(fields: [faturaId], references: [id], onDelete: Cascade)
+
+  @@unique([faturaId, satirNo])
+  @@map("fatura_satirlari")
+}
+
+model Personel {
+  id        Int       @id @default(autoincrement())
+  companyId Int       @map("company_id")
+  adSoyad   String    @map("ad_soyad")
+  tckn      String
+  gorev     String?
+  iseGiris  DateTime? @map("ise_giris")
+  iseCikis  DateTime? @map("ise_cikis")
+  isActive  Boolean   @default(true) @map("is_active")
+  profil    Json?
+  kumulatifGvMatrah Decimal @default(0) @db.Decimal(18, 2) @map("kumulatif_gv_matrah")
+  kumulatifYil      Int?    @map("kumulatif_yil")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  company  Company  @relation(fields: [companyId], references: [id])
+  bordrolar Bordro[]
+
+  @@unique([companyId, tckn])
+  @@map("personeller")
+}
+
+model Bordro {
+  id           Int     @id @default(autoincrement())
+  companyId    Int     @map("company_id")
+  personelId   Int     @map("personel_id")
+  donem        String
+  brut         Decimal @db.Decimal(18, 2)
+  net          Decimal @db.Decimal(18, 2)
+  sgkIsci      Decimal @default(0) @db.Decimal(18, 2) @map("sgk_isci")
+  sgkIsveren   Decimal @default(0) @db.Decimal(18, 2) @map("sgk_isveren")
+  gelirVergisi Decimal @default(0) @db.Decimal(18, 2) @map("gelir_vergisi")
+  gvMatrah     Decimal @default(0) @db.Decimal(18, 2) @map("gv_matrah")
+  kumulatifGvMatrah Decimal @default(0) @db.Decimal(18, 2) @map("kumulatif_gv_matrah")
+  sgkMatrah    Decimal @default(0) @db.Decimal(18, 2) @map("sgk_matrah")
+  damga        Decimal @default(0) @db.Decimal(18, 2)
+  eksikGun     Int     @default(0) @map("eksik_gun")
+  eksikGunNedeni String? @map("eksik_gun_nedeni")
+  durum        String  @default("TASLAK")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  company  Company  @relation(fields: [companyId], references: [id])
+  personel Personel @relation(fields: [personelId], references: [id])
+
+  @@unique([companyId, personelId, donem])
+  @@map("bordrolar")
+}
+
+model CompanyAyar {
+  companyId          Int     @id @map("company_id")
+  maliyetYontemi     String  @default("7A") @map("maliyet_yontemi")
+  stokDegerleme      String  @default("ORTALAMA") @map("stok_degerleme")
+  kvkkMetin          String  @default("") @map("kvkk_metin") @db.Text
+  personelSaklamaYil Int     @default(10) @map("personel_saklama_yil")
+  cariSaklamaYil     Int     @default(10) @map("cari_saklama_yil")
+  gorevAyrimi        Boolean @default(true) @map("gorev_ayrimi")
+  backupFolder       String  @default("backups") @map("backup_folder")
+  backupMax          Int     @default(14) @map("backup_max")
+  autoDeleteDays     Int     @default(0) @map("auto_delete_days")
+  backupActive       Boolean @default(false) @map("backup_active")
+  schedule           Json?
+  integratorUrl      String? @map("integrator_url")
+  integratorUser     String? @map("integrator_user")
+  integratorSecret   String? @map("integrator_secret")
+  integratorEnv      String  @default("test") @map("integrator_env")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@map("company_ayar")
+}
+
+model Departman {
+  id        Int     @id @default(autoincrement())
+  companyId Int     @map("company_id")
+  code      String
+  name      String
+  isActive  Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, code])
+  @@map("departmanlar")
+}
+
+model SgkMeslek {
+  id        Int      @id @default(autoincrement())
+  companyId Int      @map("company_id")
+  kod       String
+  ad        String
+  kaynak    String   @default("ISCO-08")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, kod])
+  @@map("sgk_meslekler")
+}
+
+model SgkIsyeri {
+  id           Int     @id @default(autoincrement())
+  companyId    Int     @map("company_id")
+  branchId     Int?    @map("branch_id")
+  tip          String
+  isyeriKodu   String  @map("isyeri_kodu")
+  kullaniciAdi String  @default("") @map("kullanici_adi")
+  sifreSifreli String  @default("") @map("sifre_sifreli")
+  unvan        String  @default("")
+  isActive     Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, isyeriKodu])
+  @@map("sgk_isyerleri")
+}
+
+model BackupRun {
+  id        Int      @id @default(autoincrement())
+  companyId Int      @map("company_id")
+  runType   String   @map("run_type")
+  status    String
+  filePath  String?  @map("file_path")
+  fileSize  Int?     @map("file_size")
+  message   String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId, createdAt])
+  @@map("backup_runs")
+}
+
+model CekSenet {
+  id          Int      @id @default(autoincrement())
+  companyId   Int      @map("company_id")
+  cariId      Int?     @map("cari_id")
+  tur         String
+  belgeNo     String   @map("belge_no")
+  tutar       Decimal  @db.Decimal(18, 2)
+  vade        DateTime
+  durum       String   @default("PORTFOY")
+  yon         String   @default("ALINAN")
+  belgeHesap  String   @default("101") @map("belge_hesap")
+  ciroEdildi  Boolean  @default(false) @map("ciro_edildi")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  company Company   @relation(fields: [companyId], references: [id])
+  cari    CariKart? @relation(fields: [cariId], references: [id])
+
+  @@unique([companyId, belgeNo])
+  @@map("cek_senetler")
+}
+
+model TicariBelge {
+  id           Int      @id @default(autoincrement())
+  companyId    Int      @map("company_id")
+  tur          String
+  yon          String
+  belgeNo      String   @map("belge_no")
+  cariId       Int?     @map("cari_id")
+  tarih        DateTime
+  tutar        Decimal  @default(0) @db.Decimal(18, 2)
+  durum        String   @default("OPEN")
+  gibDurum     String   @default("YOK") @map("gib_durum")
+  kaynakId     Int?     @map("kaynak_id")
+  olusturanId  Int?     @map("olusturan_id")
+  onaylayanId  Int?     @map("onaylayan_id")
+  profil       Json?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  company Company            @relation(fields: [companyId], references: [id])
+  cari    CariKart?          @relation(fields: [cariId], references: [id])
+  satirlar TicariBelgeSatir[]
+
+  @@unique([companyId, tur, belgeNo])
+  @@index([companyId, kaynakId])
+  @@map("ticari_belgeler")
+}
+
+model TicariBelgeSatir {
+  id         Int     @id @default(autoincrement())
+  belgeId    Int     @map("belge_id")
+  satirNo    Int     @map("satir_no")
+  aciklama   String
+  miktar     Decimal @db.Decimal(18, 4)
+  birimFiyat Decimal @db.Decimal(18, 2) @map("birim_fiyat")
+  kdvOran    Decimal @default(20) @db.Decimal(5, 2) @map("kdv_oran")
+  tutar      Decimal @db.Decimal(18, 2)
+
+  belge TicariBelge @relation(fields: [belgeId], references: [id], onDelete: Cascade)
+
+  @@unique([belgeId, satirNo])
+  @@map("ticari_belge_satirlari")
+}
+
+model YearEndRun {
+  id                Int       @id @default(autoincrement())
+  companyId         Int       @map("company_id")
+  fiscalYear        Int       @map("fiscal_year")
+  operationKey      String    @map("operation_key")
+  status            String
+  preparationMode   String    @default("MANUAL") @map("preparation_mode")
+  parameterVersion  String    @map("parameter_version")
+  previewData       Json      @map("preview_data")
+  aiSuggestion      Json?     @map("ai_suggestion")
+  voucherIds        Json      @default("[]") @map("voucher_ids")
+  approvedById      Int?      @map("approved_by_id")
+  approvedAt        DateTime? @map("approved_at")
+  createdAt         DateTime  @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId, fiscalYear, operationKey])
+  @@map("year_end_runs")
+}
+
+model EdefterPaket {
+  id            Int      @id @default(autoincrement())
+  companyId     Int      @map("company_id")
+  year          Int
+  month         Int
+  revision      Int      @default(1)
+  defterTuru    String   @default("YEVMIYE") @map("defter_turu")
+  beratTuru     String   @default("YEVMIYE_BERAT") @map("berat_turu")
+  status        String
+  fileHash      String?  @map("file_hash")
+  validation    Json
+  payload       Json
+  preparedById  Int?     @map("prepared_by_id")
+  branchCode    String?  @map("branch_code")
+  attempts      Json     @default("[]")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, year, month, revision])
+  @@index([companyId, year, month])
+  @@map("edefter_paketleri")
+}
+
+model WorkspaceState {
+  companyId Int      @id @map("company_id")
+  payload   Json
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@map("workspace_state")
+}
+
+model AuditLog {
+  id          String         @id @default(uuid())
+  tabloAdi    String         @map("tablo_adi")
+  islemTipi   AuditIslemTipi @map("islem_tipi")
+  kullaniciId Int?           @map("kullanici_id")
+  tarih       DateTime       @default(now())
+  eskiVeri    Json?          @map("eski_veri")
+  yeniVeri    Json?          @map("yeni_veri")
+  ipAdresi    String?        @map("ip_adresi")
+  oncekiHash  String?        @map("onceki_hash")
+  kayitHash   String?        @map("kayit_hash")
+
+  user User? @relation(fields: [kullaniciId], references: [id])
+
+  @@index([tabloAdi])
+  @@index([tarih])
+  @@map("audit_logs")
+}
+
+model KasaHesabi {
+  id        Int     @id @default(autoincrement())
+  companyId Int     @map("company_id")
+  kod       String
+  ad        String
+  hesapKodu String  @default("100") @map("hesap_kodu")
+  doviz     String  @default("TRY")
+  acilis    Decimal @default(0) @db.Decimal(18, 2)
+  isActive  Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, kod])
+  @@map("kasa_hesaplari")
+}
+
+model BankaHesabi {
+  id        Int     @id @default(autoincrement())
+  companyId Int     @map("company_id")
+  kod       String
+  ad        String
+  bankaAdi  String  @default("") @map("banka_adi")
+  iban      String  @default("")
+  hesapKodu String  @default("102") @map("hesap_kodu")
+  doviz     String  @default("TRY")
+  acilis    Decimal @default(0) @db.Decimal(18, 2)
+  isActive  Boolean @default(true) @map("is_active")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, kod])
+  @@map("banka_hesaplari")
+}
+
+model NakitHareket {
+  id         Int      @id @default(autoincrement())
+  companyId  Int      @map("company_id")
+  kanal      String
+  hesapId    Int      @map("hesap_id")
+  hedefId    Int?     @map("hedef_id")
+  tur        String
+  tarih      DateTime
+  tutar      Decimal  @db.Decimal(18, 2)
+  karsiHesap String   @map("karsi_hesap")
+  aciklama   String
+  fisNo      String   @map("fis_no")
+  doviz      String   @default("TRY")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId, kanal, tarih])
+  @@map("nakit_hareketler")
+}
+
+model Demirbas {
+  id         Int      @id @default(autoincrement())
+  companyId  Int      @map("company_id")
+  kod        String
+  ad         String
+  alisTarihi DateTime @map("alis_tarihi")
+  maliyet    Decimal  @db.Decimal(18, 2)
+  birikmis   Decimal  @default(0) @db.Decimal(18, 2)
+  oran       Decimal  @db.Decimal(18, 6)
+  yontem     String
+  uretim     Boolean  @default(false)
+  sonYil     Int?     @map("son_yil")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, kod])
+  @@map("demirbaslar")
+}
+
+model DovizKuru {
+  id        Int      @id @default(autoincrement())
+  companyId Int      @map("company_id")
+  doviz     String
+  tarih     DateTime
+  kur       Decimal  @db.Decimal(18, 6)
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, doviz, tarih])
+  @@map("doviz_kurlari")
+}
+
+model UretimRecete {
+  id        Int    @id @default(autoincrement())
+  companyId Int    @map("company_id")
+  kod       String
+  ad        String
+  satirlar  Json
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@unique([companyId, kod])
+  @@map("uretim_receteleri")
+}
+
+model Ortak {
+  id         Int      @id @default(autoincrement())
+  companyId  Int      @map("company_id")
+  ad         String
+  rol        String
+  hisseOran  Decimal  @db.Decimal(8, 2) @map("hisse_oran")
+  sermaye    Decimal  @default(0) @db.Decimal(18, 2)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId])
+  @@map("ortaklar")
+}
+
+model YatirimGider {
+  id         Int      @id @default(autoincrement())
+  companyId  Int      @map("company_id")
+  tarih      DateTime
+  aciklama   String
+  kategori   String   @default("KURULUS")
+  tutar      Decimal  @db.Decimal(18, 2)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId, tarih])
+  @@map("yatirim_giderleri")
+}
+
+/// Ülke mevzuatı. Değer resmi kaynak doğrulanmadan yazılmaz.
+/// Oranlar 1 = %100 olacak şekilde Decimal(18,6). Tutarlar TL.
+model MevzuatParametre {
+  id                  Int       @id @default(autoincrement())
+  anahtar             String
+  deger               Decimal   @db.Decimal(18, 6)
+  gecerlilikBaslangic DateTime  @map("gecerlilik_baslangic") @db.Date
+  gecerlilikBitis     DateTime? @map("gecerlilik_bitis") @db.Date
+  kaynak              String
+  createdAt           DateTime  @default(now()) @map("created_at")
+
+  @@unique([anahtar, gecerlilikBaslangic])
+  @@index([anahtar, gecerlilikBaslangic])
+  @@map("mevzuat_parametreleri")
+}
+
+model OrtakDagitim {
+  id          Int      @id @default(autoincrement())
+  companyId   Int      @map("company_id")
+  netKar      Decimal  @db.Decimal(18, 2) @map("net_kar")
+  stopajOran  Decimal  @default(10) @db.Decimal(5, 2) @map("stopaj_oran")
+  durum       String   @default("TASLAK")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+
+  @@index([companyId])
+  @@map("ortak_dagitimlari")
+}

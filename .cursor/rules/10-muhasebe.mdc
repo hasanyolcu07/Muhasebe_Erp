@@ -1,0 +1,42 @@
+---
+description: Türkiye muhasebe kuralları (THP, yevmiye, KDV, stok, dönem sonu, vergi hazırlık) – genel işletme
+globs: ["src/server/**", "src/modules/**", "src/lib/**", "prisma/**"]
+alwaysApply: false
+---
+Dayanak: VUK (213), TTK (6102), KDV Kanunu (3065), Tek Düzen Hesap Planı (THP).
+
+## Şirket Profili (davranışı belirler)
+Şirket ayarları: tür (şahıs / limited / anonim / diğer), faaliyet (ticaret / hizmet / imalat), defter esası (şu an yalnız bilanço esası), stok yöntemi (ağırlıklı ortalama / FIFO), e-belge mükellefiyeti. İmalat ayarı açıksa maliyet yöntemi (7/A veya 7/B) ve üretim modülü görünür. Ayar yoksa varsayılan "ticaret".
+
+## Yevmiye / Defter
+- Fiş yazan HER yol tek servisten geçer (doğrudan Prisma ile yevmiye yazılmaz). Servis: borç=alacak, hesap planında olan ve fişe açık hesap, açık dönem (fiş tarihine göre, transaction içinde).
+- Fiş no kesinleşmede verilir; şirket+yıl bazında boşluksuz; DB'de `unique(companyId, yıl, fisNo)`; çakışmada yeniden dene.
+- Tarih sırası bozulmaz (aynı yıldaki son kesin fişten eski tarihe yazılmaz).
+- Kesin fiş değişmez/silinmez. Ters kayıt: kaynak fişe bağlı (`reversalOfId`), yalnız bir kez, kaynak dönem kapalıysa yazılmaz.
+- Hesap planı: sınıf/alt sınıf/ana hesap kilitli; alt hesap serbest (noktalı kod). Plan değişikliği Zod + denetim satırı.
+- Raporlar (yevmiye, kebir, mizan, bilanço, gelir tablosu) yalnız canlı KESİN fişlerden üretilir; örnek veri yok. Kebir hesap bazında kırılır. Mizan toplamı borç=alacak testi zorunlu.
+- Belge ve defterler en az 10 yıl saklanır (TTK 82).
+
+## KDV / Fatura
+- Hesaplar: 191 indirilecek, 391 hesaplanan, 190 devreden, 360 ödenecek. Tevkifat için alt hesap.
+- Oran belge/teslim tarihindeki parametreden önerilir; satır kendi oranını taşır ve belgenin kendi tarihine bağlıdır. Yüzde değil KESİR saklanır (1 = %100); ekranda yüzde gösterilir. Şemada sabit varsayılan oran (ör. 20) yok.
+- Desteklenecek: iskonto, KDV dahil fiyat, tevkifat, istisna, ihraç kayıtlı, indirilemeyecek KDV. Kapsamı belli olmayan kalem reddedilir (sessizce yok sayılmaz).
+- İade esas faturanın oranını ve maliyetini izler. İptal = ters kayıt.
+- KDV beyan raporu yalnız veri raporudur; tahakkuk (391→191→190→360 kapatma) ayrı onaylı fiştir. Rapor "gönderildi/kabul" demez.
+- e-Fatura/e-Arşiv/e-İrsaliye `EBelgeAdapter` arkasında; mock GİB onayı üretmez.
+
+## Stok
+- Yöntem şirket ayarı; negatif stok yok; birim dönüşümü açık tanımlı (kg-ton, adet-koli gibi kullanıcı tanımlı katsayı).
+- Satış maliyeti, çıkış katmanından gelir; satış iadesi orijinal çıkış maliyetiyle girer.
+
+## Cari / Finans / Sabit Kıymet
+- Cari 120/320, kasa 100, banka 102, çek/senet 101/121/321/103. Tahsilat/ödeme seçilen kasa-banka hesabını kullanır ve tutar belge tutarına eşittir.
+- Amortisman: oran ve yöntem kullanıcıdan; kıst uygulaması şirket ayarı (SMMM karar verir). Kur kullanıcıdan; resmi kur uydurulmaz.
+
+## Dönem Sonu / Vergi Hazırlık
+- Amortisman, kur değerleme, reeskont (ayar), karşılıklar, stok sayım farkı, kapanış/açılış (yalnız KESİN fiş, yalnız ilgili yıl, ikinci kapanış yok).
+- Geçici vergi, kurumlar/gelir vergisi, Ba/Bs, muhtasar için yalnız VERİ HAZIRLIK raporu üretilir.
+- e-Defter: resmî GİB XBRL beratı üretilmedikçe "e-Defter" olarak sunulmaz.
+
+## Sektör Şablonları
+Sektöre özel (üretim reçetesi, bobin vb.) tüm yapı şirket profiline bağlı opsiyonel modüldür; çekirdek akışlar onsuz çalışır.

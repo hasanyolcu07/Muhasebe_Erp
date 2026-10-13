@@ -1,0 +1,12 @@
+---
+description: Kod kalitesi ve test kuralları
+globs: ["src/**/*.ts", "src/**/*.tsx", "server.ts"]
+alwaysApply: false
+---
+- TypeScript strict; `any` yok (`catch (err: unknown)`).
+- Hesaplamalar saf fonksiyon, ayrı dosya, Decimal.
+- Testler `src/tests/*.test.ts`. Gerçek davranışı sınayan test yaz: saf fonksiyonu yeniden tanımlayıp onu test etme.
+- Her hata düzeltmesi için önce başarısız olan test, sonra düzeltme (regresyon).
+- Zorunlu test başlıkları: borç=alacak, kapalı dönem (fiş tarihine göre), ters kayıt (tekil), fiş no benzersizliği (DB), companyId izolasyonu (gerçek sorgu, başka şirket 404), rol reddi, parametre yok → 422, yıl/ay değişiminde doğru parametre, kümülatif vergi dilimi geçişi, SGK taban/tavan/eksik gün, mizan toplamı.
+- Arayüz: react-hook-form + Zod; sunucu hatası kullanıcıya açık gösterilir; başarı mesajı yalnız sunucu başarılı dönünce.
+- CI: lint + test her commit'te.

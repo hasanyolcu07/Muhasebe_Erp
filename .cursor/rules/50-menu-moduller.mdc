@@ -1,0 +1,12 @@
+---
+description: Menü, modül ve ekran kuralları
+globs: ["src/App.tsx", "src/**/Layout*", "src/**/Sidebar*", "src/**/menu*", "src/**/routes*", "src/config/**", "src/modules/**/components/**"]
+alwaysApply: false
+---
+- Menü tek yerde tanımlanır (örn. `src/config/menu.ts`). Her öğe: id, Türkçe ad, yol, modül, gereken izin, durum (`hazir` | `yakinda`), şirket profili koşulu.
+- Hedef menü `docs/MENU_HEDEF.md` dosyasıdır. Mevcut menü ona göre karşılaştırılır; fark `docs/MENU_ENVANTERI.md` içine yazılır.
+- Yetkisi olmayan kullanıcı menü öğesini görmez. Doğrudan adres açsa 403 sayfası görür.
+- Hazır olmayan öğe "Yakında" rozeti taşır; boş veya sahte veri gösteren ekran olmaz.
+- Sektöre özel menüler (üretim, reçete vb.) yalnız ilgili şirket profilinde görünür.
+- Her ekranda: yükleniyor, boş, hata durumu; Türkçe, sade etiketler; liste ekranlarında arama ve sayfalama.
+- Ekran ile API aynı yetkiyi kullanır; ekranda gizlemek güvenlik sayılmaz.

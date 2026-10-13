@@ -1,0 +1,12 @@
+---
+description: Proje geneli kurallar (her zaman geçerli)
+alwaysApply: true
+---
+- `AGENTS.md` Altın Kurallar bağlayıcıdır.
+- Ürün: tüm işletmeler için genel Muhasebe ERP. Kodda, metinde, menüde "çivi/tel" gibi sektör varsayımı yok; sektör işleri şablon/modül olarak, şirket profiline bağlı açılır.
+- Dil: kullanıcıya görünen metin Türkçe; kod, değişken, commit İngilizce.
+- Tarih/saat: DB'de UTC, ekranda Europe/Istanbul.
+- Düzen: `src/server/modules/<modül>` (route, service, schema, test); ortak mevzuat kodu `src/server/mevzuat`.
+- Controller ince; iş kuralı service içinde. DB erişimi yalnız service/repository.
+- Türkçe karakter tuzağı: metin karşılaştırarak karar verme (`toUpperCase` ile "Üretim" gibi). Karar veren alanlar enum/boolean olsun.
+- Gereksiz bağımlılık ekleme. Her adım küçük commit.
